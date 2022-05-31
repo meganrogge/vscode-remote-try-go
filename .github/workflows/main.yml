@@ -1,16 +1,16 @@
-name: Set up Docker BuildKit
-        uses: docker/setup-buildx-action@v1
+- name: Set up Docker BuildKit
+  uses: docker/setup-buildx-action@v1
 
-name: Login to GitHub Container Registry
-        uses: docker/login-action@v1 
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-name: Run build in dev container
-        uses: stuartleeks/devcontainer-build-run@main
-        with:
-          # NOTE - Change the image name below to match your fork
-          imageName: ghcr.io/meganrogge/vscode-remote-try-go-devcontainer
-          # build and show the contents of the folder (to show the compiled app)
-          runCmd: go build && ls -al
+- name: Login to GitHub Container Registry
+  uses: docker/login-action@v1 
+  with:
+    registry: ghcr.io
+    username: ${{ github.repository_owner }}
+    password: ${{ secrets.GITHUB_TOKEN }}
+- name: Run build in dev container
+  uses: stuartleeks/devcontainer-build-run@main
+  with:
+  # NOTE - Change the image name below to match your fork
+  imageName: ghcr.io/meganrogge/vscode-remote-try-go-devcontainer
+  # build and show the contents of the folder (to show the compiled app)
+  runCmd: go build && ls -al
