@@ -4,12 +4,12 @@
 - name: Login to GitHub Container Registry
   uses: docker/login-action@v1 
   with:
-	  registry: ghcr.io
-		username: ${{ github.repository_owner }}
-   	password: ${{ secrets.GITHUB_TOKEN }}
+  registry: ghcr.io
+  username: ${{ github.repository_owner }}
+  password: ${{ secrets.GITHUB_TOKEN }}
 
 - name: Run build in dev container
-	uses: stuartleeks/devcontainer-build-run@main
+  uses: stuartleeks/devcontainer-build-run@main
   with:
   # NOTE - Change the image name below to match your fork
   imageName: ghcr.io/stuartleeks/vscode-remote-try-go-devcontainer
